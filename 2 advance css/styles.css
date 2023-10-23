@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, #1f1f1f, #0f0f0f);
+    overflow: hidden;
+  }
+  
+  .shape {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    animation: pulseAnimation 5s infinite linear, rotateAnimation 10s infinite linear;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  @keyframes pulseAnimation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+      transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+    }
+    50% {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+    }
+    75% {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+    100% {
+      transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+    }
+  }
+  

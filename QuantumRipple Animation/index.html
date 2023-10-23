@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuantumRipple Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #2c3e50;
+    }
+
+    .ripple-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      background-color: #34495e;
+    }
+
+    .ripple {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #3498db 20%, transparent 20%),
+                  radial-gradient(circle, #3498db 20%, transparent 20%);
+      background-position: 0 0, 50px 50px;
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      transform-origin: center;
+      animation: quantumRipple 1s ease-out;
+    }
+
+    @keyframes quantumRipple {
+      to {
+        transform: scale(5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ripple-container" id="rippleContainer"></div>
+
+<script>
+  const rippleContainer = document.getElementById('rippleContainer');
+
+  function createRipple(event) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = `${event.clientX - rippleContainer.getBoundingClientRect().left}px`;
+    ripple.style.top = `${event.clientY - rippleContainer.getBoundingClientRect().top}px`;
+
+    rippleContainer.appendChild(ripple);
+
+    ripple.addEventListener('animationend', () => {
+      ripple.remove();
+    });
+  }
+
+  rippleContainer.addEventListener('click', createRipple);
+</script>
+
+</body>
+</html>

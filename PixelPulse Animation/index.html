@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelPulse Animation</title>
+  <style>
+    @keyframes pixelPulse {
+      0% {
+        transform: scale(1);
+        background-color: #3498db;
+      }
+      50% {
+        transform: scale(1.2);
+        background-color: #e74c3c;
+      }
+      100% {
+        transform: scale(1);
+        background-color: #3498db;
+      }
+    }
+
+    .pixel-container {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      gap: 5px;
+      margin: 50px auto;
+    }
+
+    .pixel {
+      width: 30px;
+      height: 30px;
+      background-color: #3498db;
+      border-radius: 3px;
+      animation: pixelPulse 1s infinite alternate;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="pixel-container" id="pixelContainer"></div>
+
+<script>
+  const pixelContainer = document.getElementById('pixelContainer');
+
+  // Create pixels dynamically
+  for (let i = 0; i < 100; i++) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel';
+    pixelContainer.appendChild(pixel);
+
+    // Add a click event to change pixel color on click
+    pixel.addEventListener('click', () => {
+      const randomColor = getRandomColor();
+      pixel.style.backgroundColor = randomColor;
+    });
+  }
+
+  // Function to generate random color
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+</script>
+
+</body>
+</html>

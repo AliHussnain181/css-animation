@@ -1,0 +1,76 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #111;
+  }
+  
+  .particle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vmin;
+    height: 100vmin;
+    overflow: hidden;
+  }
+  
+  @keyframes moveParticles {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-50%) translateX(-50%);
+    }
+    50% {
+      transform: translateY(0) translateX(0);
+    }
+    75% {
+      transform: translateY(50%) translateX(50%);
+    }
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+  }
+  
+  @keyframes changeColor {
+    0%, 100% {
+      filter: hue-rotate(0deg);
+    }
+    25% {
+      filter: hue-rotate(90deg);
+    }
+    50% {
+      filter: hue-rotate(180deg);
+    }
+    75% {
+      filter: hue-rotate(270deg);
+    }
+  }
+  
+  /* Generate particles dynamically */
+  .particle {
+    position: absolute;
+    width: 2vmin;
+    height: 2vmin;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    animation: moveParticles 8s infinite linear, changeColor 8s infinite linear;
+    animation-delay: calc(-0.1s * var(--index));
+  }
+  
+  /* Additional particles with variations */
+  .particle:nth-child(2) {
+    background-color: #ff6666;
+    animation: moveParticles 6s infinite linear, changeColor 6s infinite linear;
+    animation-delay: calc(-0.1s * var(--index));
+  }
+  
+  .particle:nth-child(3) {
+    background-color: #66ff66;
+    animation: moveParticles 10s infinite linear, changeColor 10s infinite linear;
+    animation-delay: calc(-0.1s * var(--index));
+  }
+  
+  /* Add more particles as needed */
+  

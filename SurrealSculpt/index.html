@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      perspective: 1000px;
+    }
+
+    .sculpture-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sculpture {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      transform-style: preserve-3d;
+      animation: rotateSculpture 20s linear infinite;
+    }
+
+    .facet {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #3498db, #e74c3c);
+      opacity: 0.8;
+      transform-style: preserve-3d;
+      animation: rotateFacet 10s linear infinite, colorChange 10s linear infinite;
+    }
+
+    .facet:nth-child(odd) {
+      background: linear-gradient(45deg, #e74c3c, #3498db);
+    }
+
+    .facet:nth-child(2n) {
+      animation-delay: 5s;
+    }
+
+    .facet::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #e74c3c, #3498db);
+      opacity: 0.8;
+      transform-style: preserve-3d;
+      animation: rotateSubFacet 5s linear infinite;
+    }
+
+    @keyframes rotateSculpture {
+      0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes rotateFacet {
+      0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes rotateSubFacet {
+      0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+      }
+      100% {
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+      }
+    }
+
+    @keyframes colorChange {
+      0%, 100% {
+        background: linear-gradient(45deg, #3498db, #e74c3c);
+      }
+      50% {
+        background: linear-gradient(45deg, #e74c3c, #2ecc71);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sculpture-container">
+    <div class="sculpture">
+      <!-- Create multiple facets and sub-facets for the sculpture -->
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+      <div class="facet"></div>
+    </div>
+  </div>
+</body>
+</html>

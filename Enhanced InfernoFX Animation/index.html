@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced InfernoFX Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #111;
+      overflow: hidden;
+    }
+
+    .inferno-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #111;
+      box-shadow: inset 0 0 20px rgba(255, 69, 0, 0.7), 0 0 20px rgba(255, 69, 0, 0.7);
+      animation: glowAnimation 2s infinite alternate;
+    }
+
+    .flames {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 80px;
+      height: 150px;
+      background: radial-gradient(ellipse at center, transparent 0%, #ff4500 60%, transparent 100%);
+      border-radius: 50% 50% 0 0;
+      transform-origin: bottom center;
+      animation: flamesAnimation 1s infinite alternate;
+    }
+
+    @keyframes flamesAnimation {
+      to {
+        transform: scaleY(1.5) translateX(-50%);
+      }
+    }
+
+    @keyframes glowAnimation {
+      to {
+        box-shadow: inset 0 0 30px rgba(255, 69, 0, 0.9), 0 0 30px rgba(255, 69, 0, 0.9);
+      }
+    }
+
+    .inferno-text {
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+    }
+
+    .inferno-button {
+      padding: 10px 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #fff;
+      background-color: #ff4500;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .inferno-button:hover {
+      background-color: #e34200;
+    }
+  </style>
+</head>
+<body>
+
+<div class="inferno-container">
+  <div class="flames"></div>
+</div>
+
+<div class="inferno-text">Enhanced InfernoFX</div>
+<button class="inferno-button" onclick="triggerInferno()">Ignite</button>
+
+<script>
+  function triggerInferno() {
+    // Additional JavaScript functionality goes here
+    alert('Inferno ignited!');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #282c34;
+    perspective: 800px;
+  }
+  
+  .shape {
+    width: 100px;
+    height: 100px;
+    background-color: #61dafb;
+    transform-style: preserve-3d;
+    animation: rotateAnimation 5s infinite linear;
+  }
+  
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    25% {
+      transform: rotateX(360deg) rotateY(0deg) rotateZ(0deg);
+    }
+    50% {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+    }
+    75% {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+    100% {
+      transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+    }
+  }
+  
